@@ -1,0 +1,7 @@
+<?php
+require_once "./app/core/App.php";
+require_once "./app/core/Controller.php";
+require_once "./app/core/DB.php";
+require_once "./app/core/load.php";
+require_once "./app/core/Session.php";
+?>

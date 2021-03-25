@@ -1,0 +1,64 @@
+// vào index . thằng index gọi thằng brigde -> gọi thằng app -> gọi tới thằng Home trong fodel controller\
+
+<?php
+class db extends PDO{
+    private static $instance = NULL;
+    private function __construct() {}
+    private function __clone() {}
+    public static function getInstance(){
+        if(!isset(self::$instance)) {
+            $driver = "mysql";
+            $host = 'localhost';
+            $name = 'shop2';
+            $options[\PDO::ATTR_ERRMODE] = \PDO::ERRMODE_EXCEPTION;
+            $dsn = "$diver:host=$host;dbname=$name;charset=utf8";
+            self::$instance = new \PDO($dsn,'root','',$options);
+        }
+        return self::$instance;
+    }     
+    //public $con;
+    //public $servername="localhost";
+    //public $username ="root";
+    //public $password ="";
+    //public $dbname ="shop2";
+}
+?>
+<!--mysql:host=$servername;dbname=myDB", $username, $password
+
+	<?php
+class db extends PDO{
+    public $con;
+    public $servername="localhost";
+    public $username ="root";
+    public $password ="";
+    public $dbname ="shop2";
+    function __construct(){
+        //$db = new PDO('mysql:host=localhost;dbname=shop1;charset=utf8','root','');
+        //var_dump($db);
+            $this->con = new PDO($this->connect,$this->username,$this->password);
+            $this->con->query("SET NAMES 'utf8");
+            mysqli_select_db($this->con,$this->dbname);
+            $this->con->query($this->con,"SET NAMES 'utf8");
+            var_dump($this->con);
+    }
+}
+?>
+<?php
+class db extends PDO{
+    public $con;
+    public $connect = 'mysql:host=localhost;dbname=test';
+    public $servername="localhost";
+    public $username ="root";
+    public $password ="";
+    public $dbname ="test";
+    function __construct(){
+        //$db = new PDO('mysql:host=localhost;dbname=shop1;charset=utf8','root','');
+        //var_dump($db);
+            $this->con = new PDO($this->connect,$this->username,$this->password);
+            $this->con->query("SET NAMES 'utf8");
+            //mysqli_select_db($this->con,$this->dbname);
+            //$this->con->query($this->con,"SET NAMES 'utf8");
+            //var_dump($this->con);
+    }
+}
+?>
